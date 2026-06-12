@@ -8,7 +8,7 @@
 #include <QMessageBox>
 #include <QUrl>
 #include <QApplication>
-#include <iostream>   // <--- для вывода в консоль
+#include <iostream>  
 
 MainWindow::MainWindow(DatabaseManager *db, const QByteArray &masterKey, QWidget *parent)
     : QMainWindow(parent)
