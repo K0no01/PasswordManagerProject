@@ -111,7 +111,6 @@ bool DatabaseManager::checkMasterPassword(const QString &password)
 
 QByteArray DatabaseManager::deriveKey(const QString &password)
 {
-    // Фиксированная соль для генерации мастер-ключа (можно улучшить)
     const QByteArray staticSalt = "PasswordManagerSalt2024";
     QByteArray data = password.toUtf8() + staticSalt;
     return QCryptographicHash::hash(data, QCryptographicHash::Sha256);
@@ -136,12 +135,12 @@ QByteArray DatabaseManager::encryptPassword(const QString &plain, const QByteArr
     QByteArray plainData = plain.toUtf8();
     std::cout << "encryptPassword: plain size=" << plainData.size() << std::endl;
 
-    // PKCS#7 padding
+    // PKCS#7
     int padLen = 16 - (plainData.size() % 16);
     plainData.append(QByteArray(padLen, static_cast<char>(padLen)));
     std::cout << "encryptPassword: after padding, size=" << plainData.size() << std::endl;
 
-    // Копируем в безопасный буфер
+
     std::vector<uint8_t> buffer(plainData.size());
     std::memcpy(buffer.data(), plainData.constData(), plainData.size());
 
@@ -171,7 +170,7 @@ QString DatabaseManager::decryptPassword(const QByteArray &cipher, const QByteAr
                     reinterpret_cast<const uint8_t*>(iv.constData()));
     AES_CBC_decrypt_buffer(&ctx, reinterpret_cast<uint8_t*>(data.data()), data.size());
 
-    // Убираем PKCS#7 дополнение
+
     if (data.isEmpty()) return {};
     int padLen = static_cast<unsigned char>(data.at(data.size() - 1));
     if (padLen > 0 && padLen <= 16)
