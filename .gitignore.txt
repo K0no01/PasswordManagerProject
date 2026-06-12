@@ -1,0 +1,23 @@
+# Скомпилированные файлы и временные папки
+build/
+debug/
+release/
+*.o
+*.obj
+*.exe
+*.dll
+moc_*
+ui_*.h
+qrc_*
+
+# Файлы Qt Creator
+*.pro.user
+*.pro.user.*
+.qmake.stash
+.qmake.cache
+
+# Файлы базы данных (не должны попадать в репозиторий)
+*.db
+
+# Файлы Mac
+.DS_Store
