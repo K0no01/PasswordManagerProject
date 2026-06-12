@@ -1,18 +1,15 @@
 #ifndef ACCOUNTDIALOG_H
 #define ACCOUNTDIALOG_H
 
-#include <QDialog>                  // <--- меняем QWidget на QDialog
+#include <QDialog>                 
 #include <QLineEdit>
-#include "databasemanager.h"        // нужен для структуры Account
+#include "databasemanager.h"      
 
-class AccountDialog : public QDialog   // <--- наследуемся от QDialog
-{
+class AccountDialog : public QDialog  
     Q_OBJECT
 public:
-    // Если acc.id == -1 — режим добавления, иначе редактирование
     explicit AccountDialog(const Account &acc = Account(), QWidget *parent = nullptr);
-    Account accountData() const;   // возвращает заполненную запись
-
+    Account accountData() const;  
 private:
     QLineEdit *m_nameEdit;
     QLineEdit *m_urlEdit;
