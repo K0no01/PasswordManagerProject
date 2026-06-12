@@ -19,9 +19,9 @@
 ## Сборка и запуск
 1. Откройте `PasswordManager.pro` в Qt Creator.
 2. Настройте комплект (Kit) с компилятором MinGW 64-bit (или другой).
-3. Выполните Build → Rebuild All.
-4. Для запуска без Qt Creator скопируйте необходимые библиотеки с помощью `windeployqt`.
-5. Приложение создаст базу данных в папке `%APPDATA%/PasswordManager/passwords.db`.
+3. Выполните Build, Rebuild All (Или Rebuild Password Manager).
+4. Для запуска без Qt Creator скопируйте необходимые библиотеки с помощью `windeployqt` (Через cmd внутри папки debug).
+5. Приложение создаст базу данных в папке `%APPDATA%/PasswordManager/passwords.db` (Хранит master пароль и все пароли).
 
 ## Структура проекта
 - `Aes/` – библиотека tiny-AES-c (файлы `aes.h`, `aes.cpp`)
