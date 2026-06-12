@@ -43,7 +43,6 @@ Account AccountDialog::accountData() const
     acc.name = m_nameEdit->text().trimmed();
     acc.url = m_urlEdit->text().trimmed();
     acc.username = m_usernameEdit->text().trimmed();
-    // Временно кладём открытый пароль в encryptedPassword (будет зашифрован в БД)
     acc.encryptedPassword = m_passwordEdit->text().toUtf8();
     return acc;
 }
