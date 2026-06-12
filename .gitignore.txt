@@ -1,4 +1,3 @@
-# Скомпилированные файлы и временные папки
 build/
 debug/
 release/
@@ -9,15 +8,10 @@ release/
 moc_*
 ui_*.h
 qrc_*
-
-# Файлы Qt Creator
 *.pro.user
 *.pro.user.*
 .qmake.stash
 .qmake.cache
-
-# Файлы базы данных (не должны попадать в репозиторий)
 *.db
-
-# Файлы Mac
+.qtcreator/
 .DS_Store
